@@ -7,20 +7,30 @@
   <script src="script.js"></script>
 </head>
 <body>
-<script language='javascript'>
-var age=prompt("What is your age ?");
-alert('Ton age est '+ age);
-if (age<30){
-  alert("il te reste " + (30-age)+ "ans pour avoir 30 ans" );
+  <table>
+  <tr>
+    <th>Name</th><td id="name"></td>
+  </tr>
+        <th>Quest<td id="quest"></td>
+        </tr>
+        <tr>
+          <th>Favorite color<th><td id="color"></td>
+        </tr>
+      </table>
+      <script language='javascript'>
+var name = prompt("Quelle est ton age ? ");
+document.getElementById("name").inner.HTML= name;
+var quest = prompt("Quelle est votre quête?");
+if (quest=="to seek the holly grail"){
+document.getElementById('quest').inner.HTML= quest  = '<span style="color:red;\>" + quest +   </span>';
 }
-else if (age>=30){
-  alert("Tu a eu 30 ans il y a "+ (age-30)+" ans");
-}
-else{
-  alert('you are 30')
-}
-</script>
+else {
+  document.getElementById('quest').inner.HTML= quest ;
 
+}
 
+var color = prompt("quelle est votre couleur préférer?")
+document.getElementById('color').innerHTML= color;
 </body>
+</script>
 </html>
