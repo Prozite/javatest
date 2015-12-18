@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <title>javatest</title>
+    <meta charset="utf-8">
+</head>
+<!-- Ici au chargement de la page on a créé une fonction qui charge dans la fonction
+nb_aleatoire les chiffres de 1 à 100 -->
+<body onload="nb_aleatoire(1,100);">
+  <input type="number" id='proposition'></input>
+  <button onclick="ask()">Kiss me</button>
+  <div id='indice'>
+  </div>
+  <div id='compteur_essais'>
+  </div>
+  <div id='record'>
+  </div>
+
+<script language='javascript'>
+// on est dans le script javascript et on définit un nb qui sera nombre choisit
+// au hasard, la variable nb_aleatoire permet de hoisir un nombre aléatoire
+// finalement nb stockera la veleur aléatoire choisie,
+// nb_aleatoire est appelé dans le script et on lui donne comme action d'être random
+var nb = 0
+var numberTries = 0;
+function nb_aleatoire(min,max){
+  nb = Math.floor(Math.random()*(max - min)+min);
+}
+// ce qu'on veut faire c'est définir un if else et peut etre elseif pour que nb
+// choisit par le navigateur soit comparé au nb choisit par l'utilisateur et afficher des valeurs
+// en fonction de la comparaison
+
+function ask(){
+  var userNumber = document.getElementById('proposition').value;
+  if(typeof userNumber != "proposition")
+  document.getElementById('indice').innerHTML ="Mettez un nombre"
+if( userNumber > nb){
+  document.getElementById('indice').innerHTML = "plus petit";
+  numberTries++;
+}
+else if (userNumber < nb) {
+  document.getElementById('indice').innerHTML = "plus grand";
+  numberTries++;
+}
+else {
+  document.getElementById('indice').innerHTML ="gagné. vous pouvez rejouer a nouveau";
+  nb_aleatoire(1,100);
+  numberTries = 0;
+}
+document.getElementById('compteur_essais').innerHTML = numberTries + "essais" ;
+}
+</script>
+
+
+</body>
+</html>
